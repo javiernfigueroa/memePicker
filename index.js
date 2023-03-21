@@ -3,17 +3,13 @@ import { catsData } from "./data.js";
 const EMO_DIV = document.getElementById("emotion-radios");
 const BTN_GET_IMG = document.getElementById("get-image-btn");
 const CHECK_GIFT_BOX = document.getElementById("gifs-only-option");
-const memeModalInner = document.getElementById('meme-modal-inner')
-const memeModal = document.getElementById('meme-modal')
-const MODAL_CLOSE_BTN = document.getElementById('meme-modal-close-btn')
+const memeModalInner = document.getElementById("meme-modal-inner");
+const memeModal = document.getElementById("meme-modal");
+const MODAL_CLOSE_BTN = document.getElementById("meme-modal-close-btn");
 
-BTN_GET_IMG.addEventListener("click", renderCat);
 EMO_DIV.addEventListener("change", highlightCheckedOption);
-MODAL_CLOSE_BTN.addEventListener("click", closeModal)
-
-function closeModal () {
-    memeModal.style.display = 'none';
-}
+MODAL_CLOSE_BTN.addEventListener("click", closeModal);
+BTN_GET_IMG.addEventListener("click", renderCat);
 
 function highlightCheckedOption(e) {
   let target = document.getElementById(e.target.id);
@@ -22,6 +18,31 @@ function highlightCheckedOption(e) {
     i.classList.remove("highlight");
   }
   target.parentElement.classList.add("highlight");
+}
+
+function closeModal() {
+  memeModal.style.display = "none";
+}
+
+function renderCat() {
+  const catObject = getSingleCatObject();
+  memeModalInner.innerHTML = `<img 
+    class="cat-img" 
+    src="./images/${catObject.image}"
+    alt=${catObject.alt}
+    >`;
+  memeModal.style.display = "flex";
+}
+
+function getSingleCatObject() {
+  const catsArray = getMatchingCatArray();
+
+  if (catsArray.length === 1) {
+    return catsArray[0];
+  } else {
+    const randomNumber = Math.floor(Math.random() * catsArray.length);
+    return catsArray[randomNumber];
+  }
 }
 
 function getMatchingCatArray() {
@@ -39,26 +60,6 @@ function getMatchingCatArray() {
     });
     return getMatchedCats;
   }
-}
-
-function getSingleCatObject() {
-  const catsArray = getMatchingCatArray();
-
-  if (catsArray.length === 1) {
-    return catsArray[0];
-  } else {
-    const randomNumber = Math.floor(Math.random() * catsArray.length)
-    return catsArray[randomNumber]
-  }
-}
-function renderCat() {
-  const catObject = getSingleCatObject();
-  memeModalInner.innerHTML = `<img 
-  class="cat-img" 
-  src="./images/${catObject.image}"
-  alt=${catObject.alt}
-  >`
-  memeModal.style.display = 'flex'
 }
 
 function getEmotionsArray(cats) {
