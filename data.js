@@ -2,19 +2,19 @@ export const catsData = [
     {
       emotionTags: ["malhumorado"],
       isGif: false,
-      image: "enojado.jpeg",
+      image: "malhumorado.jpeg",
       alt: "A cat looking malhumorado",
     },
     {
       emotionTags: ["malhumorado", "insomnio"],
       isGif: false,
-      image: "enojado2.jpeg",
+      image: "malhumorado2.jpeg",
       alt: "A cat looking malhumorado",
     },
     {
       emotionTags: ["malhumorado"],
       isGif: false,
-      image: "enojado3.jpeg",
+      image: "malhumorado3.jpeg",
       alt: "A cat looking malhumorado",
     },
     {
@@ -86,13 +86,13 @@ export const catsData = [
     {
       emotionTags: ["malhumorado"],
       isGif: true,
-      image: "enojado.gif",
+      image: "malhumorado.gif",
       alt: "A cat looking malhumorado",
     },
     {
       emotionTags: ["malhumorado"],
       isGif: true,
-      image: "enojado2.gif",
+      image: "malhumorado2.gif",
       alt: "A cat looking angry",
     },
     {
